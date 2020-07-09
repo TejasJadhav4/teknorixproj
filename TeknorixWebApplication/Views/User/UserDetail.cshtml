@@ -1,0 +1,122 @@
+﻿@model TeknorixWebApplication.Models.UserModel
+@{
+    ViewBag.Title = "Teknorix Login";
+}
+<style>
+    label {
+        /* Other styling... */
+        text-align: right;
+        clear: both;
+        float: left;
+        margin-right: 15px;
+    }
+</style>
+
+
+@using (Html.BeginForm("SaveUser", "User"))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(p => p.UserId);
+    @*@Html.HiddenFor(p => p.password);*@
+<div class="form-horizontal">
+    <div class="col-md-4 col-sm-6 col-xs-12">
+        <div class="col-md-5">
+            <label for="firstname">First Name:</label>
+        </div>
+        <div class="col-md-7">
+            <input name="firstname" id="firstname" value="@Model.firstname" />
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-6 col-xs-12">
+        <div class="col-md-5">
+            <label for="lastname">Last Name:</label>
+        </div>
+        <div class="col-md-7">
+            <input name="lastname" id="lastname" value="@Model.lastname" />
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-6 col-xs-12">
+        <div class="col-md-5">
+            <label for="password">Password:</label>
+        </div>
+        <div class="col-md-7">
+            <input name="password" id="password" value="@Model.password" type="password" />
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-6 col-xs-12">
+        <div class="col-md-5">
+            <label for="email">Email:</label>
+        </div>
+        <div class="col-md-7">
+            <input name="email" id="email" value="@Model.email" />
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-6 col-xs-12">
+        <div class="col-md-5">
+            <label for="phonecode">Phone code:</label>
+        </div>
+        <div class="col-md-7">
+            <input name="phonecode" id="phonecode" value="@Model.phonecode" />
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-6 col-xs-12">
+        <div class="col-md-5">
+            <label for="phone">Phone:</label>
+        </div>
+        <div class="col-md-7">
+            <input name="phone" id="phone" value="@Model.phone" />
+        </div>
+    </div>
+
+    <hr />
+    <h4>Address</h4>
+
+    <div class="col-md-4 col-sm-6 col-xs-12">
+        <div class="col-md-5">
+            <label for="city">City:</label>
+        </div>
+        <div class="col-md-7">
+            <input name="city" id="city" value="@Model.city" />
+        </div>
+    </div>
+
+    <div class="col-md-4 col-sm-6 col-xs-12">
+        <div class="col-md-5">
+            <label for="state">State:</label>
+        </div>
+        <div class="col-md-7">
+            <input name="state" id="state" value="@Model.state" />
+        </div>
+    </div>
+
+    <div class="col-md-4 col-sm-6 col-xs-12">
+        <div class="col-md-5">
+            <label for="country">Country:</label>
+        </div>
+        <div class="col-md-7">
+            <input name="country" id="country" value="@Model.country" />
+        </div>
+    </div>
+
+    <div class="col-md-4 col-sm-6 col-xs-12">
+        <div class="col-md-5">
+            <label for="code">Code:</label>
+        </div>
+        <div class="col-md-7">
+            <input name="code" id="code" value="@Model.code" />
+        </div>
+    </div>
+
+    <br />
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Save" class="btn btn-default" />
+        </div>
+    </div>
+
+</div>
+}
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

@@ -1,0 +1,63 @@
+﻿@model List<TeknorixWebApplication.Models.UserModel>
+@{
+    ViewBag.Title = "Teknorix Login";
+}
+<head>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td, th {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+</head>
+
+<h4>
+    <input type="button" value="Add New" onclick="btnClick(0)" />
+</h4>
+<table>
+    <tr>
+        <th>First name</th>
+        <th>Email</th>
+        <th>Address</th>
+        <th>View</th>
+    </tr>
+    @if (Model != null)
+    {
+        if (Model.Count > 0)
+        {
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.firstname @item.lastname</td>
+                    <td>@item.email</td>
+                    <td>@item.lstadddress</td>
+                    <td><input type="button" value="View" onclick="btnClick(@item.UserId)" /></td>
+                </tr>
+            }
+        }
+    }
+</table>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+<script>
+    function btnClick(UserId) {
+        window.open('@Url.Action("AddEditUser", "User")' +
+            '?UserId=' + UserId, '_self');
+    }
+</script>
+
+@*@Html.ActionLink("View", "AddEditUser", "User", new { UserId = item.UserId })*@
